@@ -1,59 +1,54 @@
-// Quais ações meu carrinho pode fazer?
+import formatCurrency from "../utils/format.js";
 
 // Adicionar item no carrinho
-async function addItem(userCart, item) {
-	userCart.push(item);
+function addItem(userCart, item) {
+  userCart.push(item);
 }
 
 // Calcular o total
-async function calculateTotal(userCart) {
-  console.log("\nShopee cart total is:")
-	const result = userCart.reduce((total, item) => total + item.subtotal(), 0);
-	console.log(`Total: ${result}`);
+function calculateTotal(userCart) {
+  const result = userCart.reduce((total, item) => total + item.subtotal(), 0);
+  console.log(`\nTotal: ${formatCurrency(result)}`);
 }
 
 // Deletar item do carrinho
-async function deleteItem(userCart, name) {
-  const index = userCart.findIndex(item => item.name === name);
-
-  if (index !== -1) {
-    userCart.splice(index, 1);
+function deleteItem(userCart, index) {
+  if (index < 0 || index >= userCart.length) {
+    console.log("Item não encontrado.");
+    return;
   }
+
+  userCart.splice(index, 1);
 }
 
 // Remover um item
-async function removeItem(userCart, index) {
-
+function removeItem(userCart, item, quantity = 1) {
   // Encontra o índice do item
-  const indexFound = userCart.findIndex(item => item.name === index.name);
+  const indexFound = userCart.findIndex((i) => i.id === item.id);
 
   // Caso não encontre o item
-  if ( indexFound == -1 ) {
+  if (indexFound == -1) {
     console.log("Item não encontrado");
     return;
   }
 
-  // item > 1 subtrair um item, item = 1 deletar o item
-  if ( userCart[indexFound].quantity > 1 ) {
-    userCart[indexFound].quantity -= 1;
-    return;
-  } else {
+  const cartItem = userCart[indexFound];
+
+  if (quantity > cartItem.quantity) {
     userCart.splice(indexFound, 1);
-    return;
+  } else {
+    cartItem.quantity -= quantity;
   }
 }
 
-async function displayCart(userCart) {
-  console.log("\nShopee cart list:")
+// Mostra o(s) item(s) que estão no carrinho
+function displayCart(userCart) {
+  console.log("\nShopee cart list:");
   userCart.forEach((item, index) => {
-    console.log(`${index + 1}. ${item.name} - ${item.price} | ${item.quantity} | Subtotal = ${item.subtotal()}`)
+    console.log(
+      `${index + 1}. ${item.name} - ${formatCurrency(item.price)} | ${item.quantity} | Subtotal = ${formatCurrency(item.subtotal())}`,
+    );
   });
 }
 
-export {
-  addItem,
-  calculateTotal,
-  deleteItem,
-  removeItem,
-  displayCart
-}
+export { addItem, calculateTotal, deleteItem, removeItem, displayCart };
