@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Hotwheels Ferrari F40",
+    "price": 20.99,
+    "stock": 15,
+    "category": "miniaturas"
+  },
+  {
+    "id": 2,
+    "name": "Hotwheels Lamborghini Huracán",
+    "price": 39.99,
+    "stock": 8,
+    "category": "miniaturas"
+  },
+  {
+    "id": 3,
+    "name": "Hotwheels Porsche 911 GT3",
+    "price": 34.99,
+    "stock": 12,
+    "category": "miniaturas"
+  },
+  {
+    "id": 4,
+    "name": "Controle Remoto Drift Racing",
+    "price": 189.9,
+    "stock": 5,
+    "category": "controle-remoto"
+  },
+  {
+    "id": 5,
+    "name": "Pista Loop Radical Hotwheels",
+    "price": 129.9,
+    "stock": 3,
+    "category": "pistas"
+  },
+  {
+    "id": 6,
+    "name": "Hotwheels McLaren P1",
+    "price": 24.99,
+    "stock": 20,
+    "category": "miniaturas"
+  },
+  {
+    "id": 7,
+    "name": "Garage Deluxe 4 Andares",
+    "price": 219.9,
+    "stock": 2,
+    "category": "acessórios"
+  },
+  {
+    "id": 8,
+    "name": "Hotwheels Bugatti Chiron",
+    "price": 44.99,
+    "stock": 7,
+    "category": "miniaturas"
+  },
+  {
+    "id": 9,
+    "name": "Expositor Acrílico para Miniaturas",
+    "price": 79.9,
+    "stock": 10,
+    "category": "acessórios"
+  },
+  {
+    "id": 10,
+    "name": "Hotwheels Dodge Viper SRT",
+    "price": 29.99,
+    "stock": 18,
+    "category": "miniaturas"
+  }
+]
